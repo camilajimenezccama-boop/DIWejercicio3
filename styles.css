@@ -1,0 +1,96 @@
+/* ==========================================================
+   UT3 - Estilos CSS3: Componentes Nativos y Accesibilidad
+   ========================================================== */
+
+:root {
+  --color-primary: #005a9c;
+  --color-surface: #ffffff;
+  --color-background: #f4f6f8;
+  --color-text: #1a1a1a;
+  --color-border: #d0d7de;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 2rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+h1 {
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* --- Componente Desplegable (<details> / <summary>) --- */
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none; /* Oculta la flecha nativa en navegadores modernos */
+  position: relative;
+}
+
+/* Oculta el marcador nativo en WebKit/Blink (Chrome, Edge, Safari) */
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+/* Indicador visual personalizado (+ / -) */
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+/* Cambia a '-' cuando el details está abierto */
+.faq-item[open] .faq-question::after {
+  content: '-';
+}
+
+.faq-answer {
+  padding: 0 1rem 1rem 1rem;
+  border-top: 1px solid var(--color-border);
+  background-color: #fafbfc;
+}
+
+.faq-answer p {
+  margin: 1rem 0 0 0;
+}
+
+/* --- Panel de Notificaciones básico --- */
+.panel-notificaciones {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: #eef4f9;
+}
+
+/* --- Accesibilidad: Foco Visible (Ejemplo 3.6) --- */
+summary:focus-visible,
+.faq-item:focus-within {
+  outline: 3px solid #ffeb3b;
+  outline-offset: 2px;
+}
